@@ -3,8 +3,9 @@ import tkinter as tk
 ventana=tk.Tk()
 ventana.title("Calculadora :)")
 ventana.geometry("650x350")
+ventana.config(bg="")
 
-etiqueta=tk.Label(ventana, text="Ingrese dos numeros: ")
+etiqueta=tk.Label(ventana, text="Ingrese dos numeros: ", bg="purple", fg="White", font=("Arial",12,"bold"))
 etiqueta.pack(pady=6)
 
 entrada1=tk.Entry(ventana)
@@ -41,6 +42,19 @@ def multiplicar():
         resultado.config(text=f"El resultado de la multiplicacion {resu}")
     except ValueError:
         resultado.config(text="Error: ingrese números válidos")
+def division():
+    try:
+        num1 = float(entrada1.get())
+        num2 = float(entrada2.get())
+        if num2 == 0:
+            resultado.config(text="Error: Divison entre 0 no es posible")
+        else:
+            resultados = num1 / num2
+            resultado.config(text=f"El resultado de la divison es {resultados}")
+
+    except ValueError:
+        resultado.config(text="Error: ingrese números válidos")
+
 
 def Limpiar():
     entrada1.delete(0,tk.END)
@@ -55,6 +69,9 @@ boton_resta.pack(pady=6)
 
 boton_Multi=tk.Button(ventana, text="Multiplicacion", command=multiplicar)
 boton_Multi.pack(pady=6)
+
+boton_Div=tk.Button(ventana,text="Division", command=division)
+boton_Div.pack(pady=6)
 
 boton_Limpiar=tk.Button(ventana, text="Limpiar", command=Limpiar)
 boton_Limpiar.pack(pady=6)
