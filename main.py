@@ -7,17 +7,38 @@ ventana.config(bg="lightblue")
 
 etiqueta=tk.Label(
     ventana,
-    text="Calculadora Basica",
+    text="Ingrese dos números:",
     bg="lightblue",
     fg="navy",
-    font=("Arial", 14,"bold")
+    font=("Arial", 14, "bold"),
+    relief="ridge",
+    bd=2,
+    padx=10, pady=5
 )
 etiqueta.pack(pady=10)
 
-entrada1=tk.Entry(ventana, font=("Arial",12),justify="center")
+entrada1=tk.Entry(
+    ventana,
+    font=("Arial", 12),
+    justify="center",
+    relief="sunken",
+    bd=3,
+    highlightbackground="gray",
+    highlightcolor="blue",
+    highlightthickness=1
+)
 entrada1.pack(pady=5)
 
-entrada2=tk.Entry(ventana, font=("Arial", 12), justify="center")
+entrada2=tk.Entry(
+    ventana,
+    font=("Arial", 12),
+    justify="center",
+    relief="sunken",
+    bd=3,
+    highlightbackground="gray",
+    highlightcolor="blue",
+    highlightthickness=1
+)
 entrada2.pack(pady=5)
 
 resultado = tk.Label(
@@ -25,7 +46,10 @@ resultado = tk.Label(
     text="El resultado es:",
     bg="lightblue",
     fg="black",
-    font=("Arial", 14, "bold")
+    font=("Arial", 14, "bold"),
+    relief="groove",
+    bd=3,
+    padx=10, pady=5
 )
 resultado.pack(pady=15)
 
@@ -73,23 +97,96 @@ def Limpiar():
     entrada2.delete(0, tk.END)
     resultado.config(text="El resultado es: ")
 
+frame_botones=tk.Frame(ventana,bg="lightblue")
+frame_botones.pack(pady=10)
 
-boton_Suma=tk.Button(ventana, text="Suma", command=sumar)
-boton_Suma.pack(pady=6)
+boton_Suma = tk.Button(
+    frame_botones,
+    text="Suma",
+    command=sumar,
+    bg="lightgreen",
+    fg="black",
+    activebackground="green",
+    activeforeground="white",
+    font=("Arial", 12, "bold"),
+    width=12,
+    relief="raised", bd=3,
+    cursor="hand2"
+)
+boton_Suma.grid(row=0, column=0, padx=5, pady=5)
 
-boton_resta=tk.Button(ventana, text="Resta", command=restar)
-boton_resta.pack(pady=6)
+boton_resta = tk.Button(
+    frame_botones,
+    text="Resta",
+    command=restar,
+    bg="lightcoral",
+    fg="black",
+    activebackground="red",
+    activeforeground="white",
+    font=("Arial", 12, "bold"),
+    width=12,
+    relief="raised", bd=3,
+    cursor="hand2"
+)
+boton_resta.grid(row=0, column=1, padx=5, pady=5)
 
-boton_Multi=tk.Button(ventana, text="Multiplicacion", command=multiplicar)
-boton_Multi.pack(pady=6)
+boton_Multi = tk.Button(
+    frame_botones,
+    text="Multiplicación",
+    command=multiplicar,
+    bg="khaki",
+    fg="black",
+    activebackground="gold",
+    activeforeground="black",
+    font=("Arial", 12, "bold"),
+    width=12,
+    relief="raised", bd=3,
+    cursor="hand2"
+)
+boton_Multi.grid(row=1, column=0, padx=5, pady=5)
 
-boton_Div=tk.Button(ventana,text="Division", command=division)
-boton_Div.pack(pady=6)
+boton_Div = tk.Button(
+    frame_botones,
+    text="División",
+    command=division,
+    bg="plum",
+    fg="black",
+    activebackground="purple",
+    activeforeground="white",
+    font=("Arial", 12, "bold"),
+    width=12,
+    relief="raised", bd=3,
+    cursor="hand2"
+)
+boton_Div.grid(row=1, column=1, padx=5, pady=5)
 
-boton_Limpiar=tk.Button(ventana, text="Limpiar", command=Limpiar)
-boton_Limpiar.pack(pady=6)
+boton_Limpiar = tk.Button(
+    ventana,
+    text="Limpiar",
+    command=Limpiar,
+    bg="lightgray",
+    fg="black",
+    activebackground="gray",
+    font=("Arial", 12),
+    width=12,
+    relief="ridge", bd=2,
+    cursor="hand2"
+)
+boton_Limpiar.pack(pady=5)
 
-boton_salir = tk.Button(ventana, text="Salir", command=ventana.quit)
-boton_salir.pack(pady=6)
+boton_salir = tk.Button(
+    ventana,
+    text="Salir",
+    command=ventana.quit,
+    bg="red",
+    fg="white",
+    activebackground="darkred",
+    activeforeground="white",
+    font=("Arial", 12, "bold"),
+    width=12,
+    relief="ridge", bd=2,
+    cursor="hand2"
+)
+boton_salir.pack(pady=5)
 
 ventana.mainloop()
