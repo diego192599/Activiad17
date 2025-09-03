@@ -2,7 +2,7 @@ import tkinter as tk
 
 ventana=tk.Tk()
 ventana.title("Calculadora :)")
-ventana.geometry("400x300")
+ventana.geometry("650x350")
 
 etiqueta=tk.Label(ventana, text="Ingrese dos numeros: ")
 etiqueta.pack(pady=6)
