@@ -24,6 +24,14 @@ def sumar():
         resultado.config(text=f"El resultado {res}")
     except ValueError:
         resultado.config(text="Error: ingrese números válidos")
+def restar():
+    try:
+        num1=float(entrada1.get())
+        num2=float(entrada2.get())
+        resul=num1-num2
+        resultado.config(text=f"El resultado de la resta es {resul}")
+    except ValueError:
+        resultado.config(text="Error: ingrese números válidos")
 
 def multiplicar():
     try:
@@ -33,6 +41,7 @@ def multiplicar():
         resultado.config(text=f"El resultado de la multiplicacion {resu}")
     except ValueError:
         resultado.config(text="Error: ingrese números válidos")
+
 def Limpiar():
     entrada1.delete(0,tk.END)
     entrada2.delete(0, tk.END)
@@ -40,6 +49,9 @@ def Limpiar():
 
 boton_Suma=tk.Button(ventana, text="Suma", command=sumar)
 boton_Suma.pack(pady=6)
+
+boton_resta=tk.Button(ventana, text="Resta", command=restar)
+boton_resta.pack(pady=6)
 
 boton_Multi=tk.Button(ventana, text="Multiplicacion", command=multiplicar)
 boton_Multi.pack(pady=6)
