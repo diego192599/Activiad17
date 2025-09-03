@@ -2,20 +2,32 @@ import tkinter as tk
 
 ventana=tk.Tk()
 ventana.title("Calculadora :)")
-ventana.geometry("650x350")
-ventana.config(bg="")
+ventana.geometry("400x400")
+ventana.config(bg="lightblue")
 
-etiqueta=tk.Label(ventana, text="Ingrese dos numeros: ", bg="purple", fg="White", font=("Arial",12,"bold"))
-etiqueta.pack(pady=6)
+etiqueta=tk.Label(
+    ventana,
+    text="Calculadora Basica",
+    bg="lightblue",
+    fg="navy",
+    font=("Arial", 14,"bold")
+)
+etiqueta.pack(pady=10)
 
-entrada1=tk.Entry(ventana)
-entrada1.pack(pady=6)
+entrada1=tk.Entry(ventana, font=("Arial",12),justify="center")
+entrada1.pack(pady=5)
 
-entrada2=tk.Entry(ventana)
-entrada2.pack(pady=6)
+entrada2=tk.Entry(ventana, font=("Arial", 12), justify="center")
+entrada2.pack(pady=5)
 
-resultado=tk.Label(ventana,text="El resultado es:")
-resultado.pack(pady=6)
+resultado = tk.Label(
+    ventana,
+    text="El resultado es:",
+    bg="lightblue",
+    fg="black",
+    font=("Arial", 14, "bold")
+)
+resultado.pack(pady=15)
 
 def sumar():
     try:
@@ -60,6 +72,7 @@ def Limpiar():
     entrada1.delete(0,tk.END)
     entrada2.delete(0, tk.END)
     resultado.config(text="El resultado es: ")
+
 
 boton_Suma=tk.Button(ventana, text="Suma", command=sumar)
 boton_Suma.pack(pady=6)
